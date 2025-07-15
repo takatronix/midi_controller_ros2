@@ -1,0 +1,85 @@
+# MIDIデバイス設定ファイル
+# 各デバイスの特性とマッピング設定を定義
+
+devices:
+  # KORG nanoKONTROL Studio
+  nanokontrol_studio:
+    name: "KORG nanoKONTROL Studio"
+    port_pattern: "nanoKONTROL"
+    device_type: "nanokontrol_studio"
+    
+    # スライダー設定 (CC 0-7)
+    sliders:
+      cc_range: [0, 7]
+      topic_prefix: "/midi/slider"
+      value_range: [0.0, 1.0]
+      description: "8個のスライダー"
+    
+    # ノブ設定 (CC 16-23)
+    knobs:
+      cc_range: [16, 23]
+      topic_prefix: "/midi/knob"
+      value_range: [0.0, 1.0]
+      description: "8個のノブ"
+    
+    # ボタン設定 (Note 0-31)
+    buttons:
+      note_range: [0, 31]
+      topic_prefix: "/midi/button"
+      value_type: "bool"
+      description: "32個のボタン"
+    
+    # ピッチベンド設定
+    pitch_wheel:
+      topic_prefix: "/midi/pitch"
+      value_range: [0.0, 1.0]
+      description: "ピッチベンド機能"
+    
+    # システムメッセージ設定
+    system:
+      topic_name: "/midi/system"
+      value_type: "int32"
+      description: "システムメッセージ"
+
+  # 汎用MIDIデバイス
+  generic_device:
+    name: "Generic MIDI Device"
+    port_pattern: ".*"
+    device_type: "generic"
+    
+    # デフォルト設定
+    sliders:
+      cc_range: [0, 7]
+      topic_prefix: "/midi/slider"
+      value_range: [0.0, 1.0]
+      description: "汎用スライダー"
+    
+    knobs:
+      cc_range: [16, 23]
+      topic_prefix: "/midi/knob"
+      value_range: [0.0, 1.0]
+      description: "汎用ノブ"
+    
+    buttons:
+      note_range: [0, 31]
+      topic_prefix: "/midi/button"
+      value_type: "bool"
+      description: "汎用ボタン"
+
+# グローバル設定
+global_settings:
+  # デフォルトパラメータ
+  default_publish_rate: 100.0
+  default_enable_debug: true
+  
+  # エラーハンドリング
+  max_connection_retries: 3
+  connection_timeout: 5.0
+  
+  # パフォーマンス設定
+  buffer_size: 1000
+  poll_interval: 0.001  # 1ms
+  
+  # ログ設定
+  log_level: "INFO"
+  enable_statistics: true 

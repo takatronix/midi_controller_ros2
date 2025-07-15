@@ -1,0 +1,14 @@
+# MIDI Controller for ROS2 - Python Dependencies
+
+# Core MIDI libraries
+mido>=1.3.0
+python-rtmidi>=1.5.0
+
+# Configuration
+pyyaml>=6.0
+
+# ROS2 dependencies (installed via apt)
+# rclpy
+# std_msgs
+# sensor_msgs
+# geometry_msgs 
