@@ -1,67 +1,71 @@
-# ROS2 MIDI Controller Node
+# ROS2 MIDIコントローラーノード
 
-This package provides a ROS2 node for USB MIDI controllers (e.g., KORG nanoKONTROL Studio).
-It converts MIDI messages (sliders, knobs, buttons, system messages) into ROS2 topics, with flexible mapping and device support via YAML config.
+このパッケージは、USB接続MIDIコントローラー（例：KORG nanoKONTROL Studio等）をROS2ノードとして利用するためのものです。
+MIDIメッセージ（スライダー、ノブ、ボタン、システムメッセージ）をROS2トピックに変換・配信します。YAML設定でマッピングやデバイス追加も柔軟に対応。
 
-## Features
-- Plug & play support for USB MIDI controllers
-- Converts MIDI messages to ROS2 topics (sliders, knobs, buttons, system)
-- Device mapping and configuration via YAML
-- Modular, extensible Python codebase
-- Test scripts and sample launch files included
+## 特徴
+- USB MIDIコントローラーのプラグ＆プレイ対応
+- MIDIメッセージをROS2トピックに変換（スライダー、ノブ、ボタン、システム）
+- YAMLによるデバイスマッピング・設定
+- モジュール化された拡張性の高いPythonコード
+- テストスクリプト・サンプルlaunch付属
 
-## Prerequisites
+## 前提条件
 - Ubuntu 22.04.5 LTS (Jammy Jellyfish)
 - Python 3.10.12
 - ROS2 Humble
-- USB MIDI Controller
-- ALSA MIDI support
+- USB MIDIコントローラー
+- ALSA MIDIサポート
 
-## Installation
+## インストール
 ```bash
-# Clone this repository
+# このリポジトリをクローン
 $ git clone https://github.com/takatronix/midi_controller_ros2.git
 $ cd midi_controller_ros2
 
-# Install dependencies
+# 依存パッケージのインストール
 $ pip install -r requirements.txt
 
-# (Optional) Build as ROS2 package
+# （オプション）ROS2パッケージとしてビルド
 $ colcon build
 ```
 
-## Usage
-### Run as a ROS2 node
+## 使い方
+### ROS2ノードとして起動
 ```bash
-# Source your ROS2 environment
+# ROS2環境をsource
 $ source /opt/ros/<ros2-distro>/setup.bash
 
-# Launch the node
+# ノードを起動
 $ ros2 launch midi_controller_node midi_controller_launch.py
 ```
 
-### Test script (standalone)
+### テストスクリプト（スタンドアロン）
 ```bash
 $ python3 test_midi_ros2.py
 ```
 
-## Supported Devices
-- KORG nanoKONTROL Studio (default mapping)
-- Generic USB MIDI controllers (customizable via config)
+## サポートデバイス
+- KORG nanoKONTROL Studio（デフォルトマッピング）
+- 汎用USB MIDIコントローラー（設定で追加可能）
 
-## Configuration
-Edit `midi_controller_node/config/devices.yaml` to change device mapping or add new devices.
+## 設定
+`midi_controller_node/config/devices.yaml` を編集してマッピングやデバイス追加が可能です。
 
-## License
-See [LICENSE](LICENSE).
+## 詳細ドキュメント
+- [ユーザーガイド](docs/USER_GUIDE.md) - 包括的な使用方法とサンプル
+- [APIリファレンス](docs/API_REFERENCE.md) - 詳細な仕様とトピック情報
 
-## Contributing
-Pull requests and issues are welcome!
+## ライセンス
+[LICENSE](LICENSE) を参照してください。
 
-## Contact
-Takashi Otsuka
+## 貢献
+Pull Request・Issue歓迎！
+
+## 連絡先
+大塚崇
 
 ---
 
-## Japanese Documentation
-[README in Japanese](docs/README_ja.md) is also available.
+## English Documentation
+[README in English](docs/README_en.md) is also available.
